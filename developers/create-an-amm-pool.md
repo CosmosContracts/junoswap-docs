@@ -8,7 +8,7 @@ coverY: 0
 
 JunoSwap AMM pools are created by interacting with the JunoSwap smart contract. These instructions will outline the arguments for your command and the procedure to successfully create your AMM pool on the JunoSwap smart contract.
 
-An AMM pool can be created with any combination of native token, IBC coins and CW20 coins. Developing CW20 coins is outside the scope of this documentation. Refer to information [here](https://docs.junonetwork.io/smart-contracts-and-junod-development/tutorial-erc-20) to get started.
+An AMM pool can be created with any combination of native token, IBC coins and CW20 token. Developing CW20 token is outside the scope of this documentation. Refer to information [here](https://docs.junonetwork.io/smart-contracts-and-junod-development/tutorial-erc-20) to get started.
 
 To create a new AMM pool, you will need to have the correct `denom` designations for your coins. In this example, we will be using native JUNO and IBC SCRT. The `denom` for these coins are:
 
@@ -22,6 +22,12 @@ You can find the `denom` of a token by querying your wallet address:
 ```bash
 junod q bank balances <wallet-address>
 ```
+If you're creating an AMM pool with a CW20 token, the `denom` message is the contract address, as such:
+
+| Symbol | Denom                                                           |
+| ------ | --------------------------------------------------------------- |
+| JUNO   | ujuno                                                           |
+| NETA   | juno168ctmpyppk90d34p3jjy658zf5a5l3w8wk35wht6ccqj4mr0yv8s4j5awr |
 
 The procedure to create a new AMM pool is to:
 
@@ -30,7 +36,7 @@ The procedure to create a new AMM pool is to:
 
 ### Create empty pool
 
-The wasm contract `Code ID` of the junoswap contract is `16`. More information on wasm contracts [here](https://docs.cosmwasm.com/docs/1.0/).
+The wasm contract `Code ID` of the Junoswap contract is `16`. More information on wasm contracts [here](https://docs.cosmwasm.com/docs/1.0/). Each pool needs a unique label conforming to the standard `<token1> <token2> Pool`, where `<token1>` and `<token2>` are the two tokens in the pool.
 
 To create an empty pool we need to instantiate the wasm contract with our pool data. Using our `denom`'s identified earlier:
 
@@ -47,7 +53,7 @@ junod tx wasm instantiate 16 \
 Replace \<wallet-name> with the name of your wallet in your local keystore.
 {% endhint %}
 
-If we query the `<transaction-hash>` resultant from the instantiate transaction:
+If you query the `<transaction-hash>` resultant from the instantiate transaction:
 
 ```bash
 junod q tx <transaction-hash> | jq -r .raw_log | jq .
@@ -57,7 +63,7 @@ junod q tx <transaction-hash> | jq -r .raw_log | jq .
 `<transaction-hash>` will look similar to `CA8A5EC4FB69B3DA95411212C9FDB9CF2A4D2128F6D3A15CFBA56136D760E023`
 {% endhint %}
 
-We will have a result similar to:
+You should have a result similar to:
 
 ```json
 [
@@ -111,17 +117,31 @@ We will have a result similar to:
 ]
 ```
 
-From this stdout we can extract the junoswap contract address and the liquidity pool contract address. In this case:
+If this is not successful, it is also possible to use https://dev.mintscan.io/juno/txs/6BAB0399B7A854E5CF03DEB940F87DF35B18C613ACF0AE92C9889B283B414ADE, where the transaction hash is replaced with your transaction hash. Click from parsing data to raw data, and obtain the data from there.
 
-| <p>junoswap </p><p>contract address</p>       | juno1zz8vspvcq7a3t40sy6xfxa3yk8wuy3vr8clyn3pt8pthpucnvpyqes54md |
+From this stdout you can extract the Junoswap contract address and the liquidity pool contract address. In this situaton, the data would be:
+
+| <p>Junoswap </p><p>contract address</p>       | juno1zz8vspvcq7a3t40sy6xfxa3yk8wuy3vr8clyn3pt8pthpucnvpyqes54md |
 | --------------------------------------------- | --------------------------------------------------------------- |
 | <p>liquidity pool </p><p>contract address</p> | juno1quce89l8clsn8s5tmq5sylg370h58xfnkwadx72crjv90jmetp4s3fkysl |
 
+### Approving contract to spend your tokens
+If you're one or more of the tokens in the pool is a CW20 token, you will need to approve the Junoswap contract address to spend your tokens first. Use the following command:
+
+```bash
+junod tx wasm execute juno168ctmpyppk90d34p3jjy658zf5a5l3w8wk35wht6ccqj4mr0yv8s4j5awr '{"increase_allowance": {"amount": "100000000", "spender": "juno1zz8vspvcq7a3t40sy6xfxa3yk8wuy3vr8clyn3pt8pthpucnvpyqes54md"}}' \
+--from <wallet-name> \
+--gas 900000 \
+--gas-prices 0.0025ujuno
+```
+
+In ths command, `juno168ctmpyppk90d34p3jjy658zf5a5l3w8wk35wht6ccqj4mr0yv8s4j5awr` is the token contract address, and `juno1zz8vspvcq7a3t40sy6xfxa3yk8wuy3vr8clyn3pt8pthpucnvpyqes54md` is the Junoswap contract address.
+
 ### Add liquidity to AMM pool
 
-To add liquidity, we must first  make sure we have funded our wallet with enough token to deposit into the AMM pool. in this example we will be adding `250ujuno` and `1000uscrt`. Please note that we must use the correct `denom` for the tokens on chain.
+To add liquidity, you must first make sure you have funded your wallet with enough tokens to deposit into the AMM pool. In this example, you will be adding `250ujuno` and `1000uscrt`. Please note that you must use the correct `denom` for the tokens on chain.
 
-We will use the following command to send the `add_liquidity` message to our junoswap contract:
+Use the following command to send the `add_liquidity` message to our junoswap contract:
 
 ```bash
 junod tx wasm execute juno1zz8vspvcq7a3t40sy6xfxa3yk8wuy3vr8clyn3pt8pthpucnvpyqes54md \
