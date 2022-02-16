@@ -38,7 +38,7 @@ The procedure to create a new AMM pool is to:
 
 The wasm contract `Code ID` of the Junoswap contract is `16`. More information on wasm contracts [here](https://docs.cosmwasm.com/docs/1.0/). Each pool needs a unique label conforming to the standard `<token1> <token2> Pool`, where `<token1>` and `<token2>` are the two tokens in the pool.
 
-To create an empty pool we need to instantiate the wasm contract with our pool data. Using our `denom`'s identified earlier:
+To create an empty pool with native tokens we need to instantiate the wasm contract with our pool data. Using our `denom`'s identified earlier:
 
 ```bash
 junod tx wasm instantiate 16 \
@@ -48,6 +48,18 @@ junod tx wasm instantiate 16 \
 --fees 250000ujuno \
 --from <wallet-name>
 ```
+
+⚠**️Attention**, if your `token2_denom` is a token of type CW20, you must replace `native` by `cw20`.
+
+```bash
+junod tx wasm instantiate 16 \
+'{"token1_denom": {"native": "ujuno"},"token2_denom": {"cw20": "juno1wc2qs0qy3t876g6ejphhcg3dre9084r2rwjmu2qg6d7v48welq5qxmcv79"},"lp_token_code_id": 1}' \
+--label "JUNO XEZ Pool" \
+--gas 10000000 \
+--fees 250000ujuno \
+--from <wallet-name>
+```
+
 
 {% hint style="info" %}
 Replace \<wallet-name> with the name of your wallet in your local keystore.
