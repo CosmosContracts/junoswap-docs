@@ -16,7 +16,7 @@ Maximum <mark style="color:orange;">1,000,000,000</mark> <mark style="color:gree
 
 Fairdrops: <mark style="color:green;"></mark> <mark style="color:orange;">150,000,000</mark> $RAW (Community owned at genesis)
 
-LP Pool rewards: <mark style="color:green;"></mark> <mark style="color:orange;">400,000,000</mark> $RAW (Community controlled Treasury)
+LP Pool rewards: <mark style="color:green;"></mark> <mark style="color:orange;">400,000,000</mark> $RAW (Community controlled Treasury)\*\*
 
 DAO Staking rewards: <mark style="color:orange;">300,000,000</mark> $RAW (DAO staking contract)
 
@@ -40,5 +40,5 @@ Fairdrop Breakdown
 
 
 
-Note: Allocation changes are subject to DAO governance after genesis.&#x20;
+\*\*Note: LP allocation changes are subject to DAO governance after genesis.&#x20;
 
