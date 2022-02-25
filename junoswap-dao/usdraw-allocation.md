@@ -37,3 +37,8 @@ Fairdrop Breakdown
 <mark style="color:purple;">Osmosis</mark> LPs: <mark style="color:orange;">25,000,000</mark> $RAW
 
 <mark style="color:orange;">JunoSwap</mark> LPs: <mark style="color:orange;">30,000,000</mark> $RAW
+
+
+
+Note: Allocation changes are subject to DAO governance after genesis.&#x20;
+
