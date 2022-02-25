@@ -17,3 +17,4 @@
 ## JunoSwap DAO
 
 * [$RAW](junoswap-dao/usdraw.md)
+* [Fairdrop](junoswap-dao/fairdrop.md)
