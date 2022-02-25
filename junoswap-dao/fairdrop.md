@@ -8,7 +8,7 @@ Snapshots:
 
 
 
-✅ Feb. 7th (Snapshot completed)
+✅ Feb. 7th, 2022 (Snapshot completed)
 
 JUNO (Holders & stakers)
 
@@ -16,7 +16,7 @@ ATOM (Holders & stakers)
 
 
 
-✅ Feb. 13th (Snapshot completed)
+✅ Feb. 13th, 2022 (Snapshot completed)
 
 JUNO Liquidity Providers @Junoswapdex
 
