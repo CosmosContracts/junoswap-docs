@@ -1,6 +1,6 @@
 # Fairdrop
 
-The $RAW genesis supply is distributed entirely to the community via 4 fairdrops at launch.
+The $RAW genesis supply is claimable entirely by the community via 4 fairdrops at launch.
 
 
 
