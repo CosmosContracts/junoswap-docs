@@ -17,4 +17,5 @@
 ## JunoSwap DAO
 
 * [$RAW](junoswap-dao/usdraw.md)
+* [$RAW Allocation](junoswap-dao/usdraw-allocation.md)
 * [Fairdrop](junoswap-dao/fairdrop.md)
