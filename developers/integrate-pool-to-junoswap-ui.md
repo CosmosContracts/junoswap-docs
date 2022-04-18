@@ -1,7 +1,5 @@
 ---
 description: General instructions for integration of your AMM pool into the JunoSwap.com UI
-cover: ../.gitbook/assets/JunoSwap gitbook 5 (3).png
-coverY: 0
 ---
 
 # Integrate Pool to JunoSwap UI

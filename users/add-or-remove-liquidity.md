@@ -1,8 +1,3 @@
----
-cover: ../.gitbook/assets/JunoSwap gitbook 5 (2).png
-coverY: 0
----
-
 # Add or Remove Liquidity
 
 Addiing liquidity to JunoSwap will allow you to earn passive income through various reward functions. These functions include:

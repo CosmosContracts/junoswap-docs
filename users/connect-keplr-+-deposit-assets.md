@@ -1,8 +1,3 @@
----
-cover: ../.gitbook/assets/JunoSwap gitbook 5.png
-coverY: 0
----
-
 # Connect Keplr + Deposit Assets
 
 

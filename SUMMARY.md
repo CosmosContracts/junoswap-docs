@@ -14,8 +14,7 @@
 * [Create an AMM Pool](developers/create-an-amm-pool.md)
 * [Integrate Pool to JunoSwap UI](developers/integrate-pool-to-junoswap-ui.md)
 
-## JunoSwap DAO
+## RAW DAO
 
-* [$RAW](junoswap-dao/usdraw.md)
-* [$RAW Allocation](junoswap-dao/usdraw-allocation.md)
-* [Fairdrop](junoswap-dao/fairdrop.md)
+* [$RAW](raw-dao/usdraw.md)
+* [Fairdrop](raw-dao/fairdrop.md)

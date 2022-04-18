@@ -1,8 +1,3 @@
----
-cover: ../.gitbook/assets/JunoSwap gitbook 5 (5).png
-coverY: 0
----
-
 # Swap Assets
 
 The primary function of JunoSwap is to enable users to swap assets on the Juno Network. This is achieved through an easy to use interface which has followed the standard design elements used throughout the cryptocurrency ecosystem. The intention is to create a seamless user experience.
