@@ -46,6 +46,7 @@ junod tx wasm instantiate 16 \
 --label "JUNO SCRT Pool" \
 --gas 10000000 \
 --fees 250000ujuno \
+--admin juno1pv88fxyhvyv2edwed72leupsuympnwvmsny4jtzspv9zw2dcrhkseh58kn \
 --from <wallet-name>
 ```
 
@@ -57,9 +58,12 @@ junod tx wasm instantiate 16 \
 --label "JUNO XEZ Pool" \
 --gas 10000000 \
 --fees 250000ujuno \
+--admin juno1pv88fxyhvyv2edwed72leupsuympnwvmsny4jtzspv9zw2dcrhkseh58kn \
 --from <wallet-name>
 ```
 
+In this command, `juno1pv88fxyhvyv2edwed72leupsuympnwvmsny4jtzspv9zw2dcrhkseh58kn` is the Raw Dao address 
+which needs to be given admin rights to manage pool upgrades from the Dao.
 
 {% hint style="info" %}
 Replace \<wallet-name> with the name of your wallet in your local keystore.
